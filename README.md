@@ -14,12 +14,16 @@
 
 ### Disconnect wifi
 `wpa_cli -i wlan0 disconnect`
+
 Or
+
 `start-stop-daemon -K -n wpa_supplicant`
 
 ### Connect to the new network
 ```
 start-stop-daemon -K -n wpa_supplicant
+ifconfig wlan0 down
+ifconfig wlan0 up
 wpa_passphrase <NEW-WIFI-SSID> <NEW-PASSWORD> > wpa_supplicant.conf
 wpa_supplicant -B -c wpa_supplicant.conf -i wlan0
 ```
