@@ -12,6 +12,19 @@
 ### Aquire an ip address for wlan0
 `dhcpcd wlan0`
 
+### Aquire a new ip address for wlan0
+```
+dpcpcd -k wlan0
+dhcpcd wlan0
+```
+
+### Set an specified ip address for wlan0
+```
+dpcpcd -k wlan0
+ip addr add <ip_specified>/24 dev wlan0
+ip route add default via <gateway_addr> dev wlan0
+```
+
 ### Disconnect wifi
 `wpa_cli -i wlan0 disconnect`
 
